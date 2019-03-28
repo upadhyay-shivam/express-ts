@@ -1,8 +1,8 @@
 
-import { prop, Typegoose } from 'typegoose';
+import { prop } from 'typegoose';
 import UserRoles from './role.enum';
-import { schemaOptions } from '../../shared/base.model';
-class User extends Typegoose {
+import { schemaOptions, BaseModel } from '../../shared/base.model';
+class User extends BaseModel<User> {
     @prop()
     name?: string;
     @prop({ required: true, unique: true })

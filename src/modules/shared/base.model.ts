@@ -1,13 +1,23 @@
-import { Document, SchemaOptions } from 'mongoose';
+import { SchemaOptions } from 'mongoose';
+import { Typegoose, prop, pre } from 'typegoose';
 
-export interface BaseModel extends Document {
+@pre('findOneAndUpdate', function (next) {
+    this._update.updatedAt = new Date(Date.now());
+    next();
+})
+export class BaseModel<T> extends Typegoose {
+    @prop({ default: Date.now() })
     createdAt?: Date;
+
+    @prop({ default: Date.now() })
     updatedAt?: Date;
+
+    id?: string;
 }
 export class BaseModelVm {
     createdAt?: Date;
     updatedAt?: Date;
-    id?: string;
+    id?: string | number;
 }
 
 export const schemaOptions: SchemaOptions = {

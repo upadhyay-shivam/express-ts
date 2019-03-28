@@ -1,8 +1,8 @@
 import UserRoles from "../role.enum";
+import { BaseModelVm } from "../../../shared/base.model";
 
-export interface UserVm {
+export interface UserVm extends BaseModelVm {
     name: string;
-    id: string | number;
     roles: UserRoles;
     email: string;
 }
