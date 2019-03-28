@@ -1,0 +1,12 @@
+{
+    "swagger": {
+        "outputDirectory": ".",
+        "entryFile": "./src/app.ts"
+    },
+    "routes": {
+        "basePath": "/",
+        "entryFile": "./src/app.ts",
+        "routesDir": "./src",
+        "authenticationModule": "./src/modules/shared/middlewares/authenticate.ts"
+    }
+}
